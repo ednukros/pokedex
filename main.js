@@ -1,18 +1,8 @@
 const card$$ = document.querySelector(".card");
 
-
-
-function fetchPokemon(){
-
-    fetch('https://pokeapi.co/api/v2/pokemon/')
-    .then((response) => {
-        return response.json();
-    })
-    .then((myJson) => {
-        console.log(myJson);
-    });
-
-
+const itemPokemons = async () => {
+    const res = await fetch ("https://pokeapi.co/api/v2/pokemon/");
+    const resItem = await res.json();
+    console.log(resItem);
 }
-
-fetchPokemon();
+itemPokemons();
