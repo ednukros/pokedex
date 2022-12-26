@@ -1,8 +1,8 @@
 const card$$ = document.querySelector(".card");
 
-const itemPokemons = async () => {
+const itemsPokemons = async () => {
     const res = await fetch ("https://pokeapi.co/api/v2/pokemon/");
-    const resItem = await res.json();
-    console.log(resItem);
+    const resItems = await res.json();
+    console.log(resItems);
 }
-itemPokemons();
+itemsPokemons();
