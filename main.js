@@ -1,8 +1,15 @@
 const card$$ = document.querySelector(".card");
 
-const itemsPokemons = async () => {
-    const res = await fetch ("https://pokeapi.co/api/v2/pokemon/");
-    const resItems = await res.json();
-    console.log(resItems);
+function itemsFetch (id) {
+    fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
+     .then(res => res.json())
+     .then(pokemons => console.log(pokemons))
 }
-itemsPokemons();
+1
+
+function itemFetch (number){
+    for (let i = 1; i <= number; i++) {
+    itemsFetch(i);
+    }
+}
+itemFetch(10);
