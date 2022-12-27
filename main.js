@@ -18,16 +18,9 @@ const getPokemons = async (url) => { //peticion
 
     // }
 
-
-
-
-
-
 }
 const dataPokemons = async () => {
     // try {
-
-        
 
         for (let i = 1; i <= 5; i++) {
 
@@ -43,21 +36,25 @@ const dataPokemons = async () => {
             const ol$$ = document.querySelector("#pokedex");
             const container$$ = document.querySelector(".container")
 
-
-            
             
             const li$$ = document.createElement("li");
             
             const h2$$ = document.createElement('h2');
             h2$$.textContent = resul.name;
+
             const imageContainer$$ = document.createElement('div');
+
             const img$$ = document.createElement('img');
-            img$$.src = "resul.sprites.back_default";
+            img$$.src = resul.sprites.front_default;
+
             const id$$ = document.createElement('h3');
             id$$.textContent = resul.id;
+
             const types$$ = document.createElement('div');
+
             const nameType0$$ = document.createElement('span');
             nameType0$$.textContent = resul.types[0].type.name+ " ";
+            
             const nameType1$$ = document.createElement('span');
             nameType1$$.textContent = resul.types[1].type.name;
 
@@ -82,9 +79,6 @@ const dataPokemons = async () => {
 
 }
 
-
-
-
 function init() {
     getPokemons(urlPokemon)
 }
@@ -92,3 +86,19 @@ function init() {
 window.onload = init;
 
 
+
+
+
+const nameType0$$ = document.createElement('span');
+nameType0$$.textContent = resul.types[0].type.name+ " ";
+
+const nameType1$$ = document.createElement('span');
+nameType1$$.textContent = resul.types[1].type.name;
+const nameType$$ = resul.types
+    if (resul.types[0].type.name == true  || resul.types[1].type.name == true) {
+    console.log(nameType$$)
+
+    } else {
+    console.log("")
+
+    }
