@@ -2,25 +2,45 @@
 
 let urlPokemon = `https://pokeapi.co/api/v2/pokemon/`;
 
+const typeColors = {
+    electric: '#FFEA70',
+    normal: '#B09398',
+    fire: '#FF675C',
+    water: '#0596C7',
+    ice: '#AFEAFD',
+    rock: '#999799',
+    flying: '#7AE7C7',
+    grass: '#4A9681',
+    psychic: '#FFC6D9',
+    ghost: '#561D25',
+    bug: '#A2FAA3',
+    poison: '#795663',
+    ground: '#D2B074',
+    dragon: '#DA627D',
+    steel: '#1D8A99',
+    fighting: '#2F2F2F',
+    default: '',
+};
+
 const getPokemons = async (url) => { //peticion
 
-
-    // try {
+    try {
         const response = await fetch(url);
         const results = await response.json();
         console.log(results)
 
         dataPokemons(results.results)
-    // } catch (error) {
+    } catch (error) {
 
-    //     console.log(error)
-    //     console.log("Algo falló en la petición :(");
+        console.log(error)
+        console.log("Algo falló en la petición :(");
 
-    // }
+    }
 
 }
+
 const dataPokemons = async () => {
-    // try {
+    try {
 
         for (let i = 1; i <= 5; i++) {
 
@@ -29,8 +49,7 @@ const dataPokemons = async () => {
             // const resp = await fetch(urlPokemon + i); 
             const resul = await resp.json();
 
-
-            console.log(resul)
+            console.log(resul);
 
            
             const ol$$ = document.querySelector("#pokedex");
@@ -45,19 +64,31 @@ const dataPokemons = async () => {
             const imageContainer$$ = document.createElement('div');
 
             const img$$ = document.createElement('img');
-            img$$.src = resul.sprites.front_default;
+            img$$.src = resul.sprites.other.dream_world.front_default;
 
             const id$$ = document.createElement('h3');
-            id$$.textContent = resul.id;
+            id$$.textContent = "Nº" + resul.id;
+
+
 
             const types$$ = document.createElement('div');
-
-            const nameType0$$ = document.createElement('span');
-            nameType0$$.textContent = resul.types[0].type.name+ " ";
             
-            const nameType1$$ = document.createElement('span');
-            nameType1$$.textContent = resul.types[1].type.name;
+            for (const tipo of resul.types){
 
+                const nameType$$ = document.createElement("span");
+                types$$.appendChild(nameType$$);
+                nameType$$.textContent = tipo.type.name + " ";
+            // para poner color al contenedor
+            // if (tipo === "grass") {
+            
+            //      nameType$$.className = "grass"
+  
+            //   }
+
+            };
+
+
+            
             li$$.setAttribute("class", "li");
             imageContainer$$.setAttribute("class", "imageContainer");
             types$$.setAttribute("class", "element");
@@ -68,14 +99,14 @@ const dataPokemons = async () => {
             imageContainer$$.appendChild(img$$);
             li$$.appendChild(id$$);
             li$$.appendChild(types$$);
-            types$$.appendChild(nameType0$$);
-            types$$.appendChild(nameType1$$);
+
+
             ol$$.appendChild(li$$);
         }
-    // } catch (error) {
+    } catch (error) {
 
-    //     console.log(error)
-    // }
+        console.log(error)
+    }
 
 }
 
@@ -89,16 +120,35 @@ window.onload = init;
 
 
 
-const nameType0$$ = document.createElement('span');
-nameType0$$.textContent = resul.types[0].type.name+ " ";
+// const nameType0$$ = document.createElement('span');
+// nameType0$$.textContent = resul.types[0].type.name+ " ";
 
-const nameType1$$ = document.createElement('span');
-nameType1$$.textContent = resul.types[1].type.name;
-const nameType$$ = resul.types
-    if (resul.types[0].type.name == true  || resul.types[1].type.name == true) {
-    console.log(nameType$$)
+// const nameType1$$ = document.createElement('span');
+// nameType1$$.textContent = resul.types[1].type.name;
 
-    } else {
-    console.log("")
+// const nameType$$ = resul.types
+//     if (resul.types[0].type.name == true  || resul.types[1].type.name == true) {
+//     console.log(nameType$$)
 
-    }
+//     } else {
+//     console.log("")
+
+//     }
+
+
+// const  getPokemonTypes = types$$ => {
+//     const typeColorOne = typeColors[resul.types[0].type.name];
+//     const typeColorTwo = resul.types[1].type.name ? typeColors[resul.types[1].type.name] : typeColors.default
+// }
+// console.log(getPokemonTypes)
+
+// const types$$ = document.createElement('div');
+//             resul.types.forEach(function() {
+                
+//                 const nameType0$$ = document.createElement('span');
+//                 types$$.appendChild(nameType0$$);
+//                 const nameType1$$ = document.createElement('span');
+//                 types$$.appendChild(nameType1$$);
+//                 nameType0$$.textContent = [resul.types[0].type.name];
+//                 nameType1$$.textContent = resul.types[1] ? [resul.types[1].type.name] : [console.log("")]
+//             });
