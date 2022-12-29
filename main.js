@@ -42,7 +42,7 @@ const getPokemons = async (url) => { //peticion
 const dataPokemons = async () => {
     try {
 
-        for (let i = 1; i <= 5; i++) {
+        for (let i = 1; i <= 20; i++) {
 
             let id = i;
             const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
