@@ -46,7 +46,6 @@ const dataPokemons = async () => {
 
             let id = i;
             const resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-            // const resp = await fetch(urlPokemon + i); 
             const resul = await resp.json();
 
             console.log(resul);
@@ -78,6 +77,7 @@ const dataPokemons = async () => {
                 const nameType$$ = document.createElement("span");
                 types$$.appendChild(nameType$$);
                 nameType$$.textContent = tipo.type.name + " ";
+                nameType$$.createElement
             // para poner color al contenedor
             // if (tipo === "grass") {
             
@@ -118,37 +118,3 @@ window.onload = init;
 
 
 
-
-
-// const nameType0$$ = document.createElement('span');
-// nameType0$$.textContent = resul.types[0].type.name+ " ";
-
-// const nameType1$$ = document.createElement('span');
-// nameType1$$.textContent = resul.types[1].type.name;
-
-// const nameType$$ = resul.types
-//     if (resul.types[0].type.name == true  || resul.types[1].type.name == true) {
-//     console.log(nameType$$)
-
-//     } else {
-//     console.log("")
-
-//     }
-
-
-// const  getPokemonTypes = types$$ => {
-//     const typeColorOne = typeColors[resul.types[0].type.name];
-//     const typeColorTwo = resul.types[1].type.name ? typeColors[resul.types[1].type.name] : typeColors.default
-// }
-// console.log(getPokemonTypes)
-
-// const types$$ = document.createElement('div');
-//             resul.types.forEach(function() {
-                
-//                 const nameType0$$ = document.createElement('span');
-//                 types$$.appendChild(nameType0$$);
-//                 const nameType1$$ = document.createElement('span');
-//                 types$$.appendChild(nameType1$$);
-//                 nameType0$$.textContent = [resul.types[0].type.name];
-//                 nameType1$$.textContent = resul.types[1] ? [resul.types[1].type.name] : [console.log("")]
-//             });
