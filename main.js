@@ -50,26 +50,26 @@ const dataPokemons = async () => {
 
             console.log(resul);
 
-           
+            const container$$ = document.querySelector(".container");
             const ol$$ = document.querySelector("#pokedex");
-            const container$$ = document.querySelector(".container")
 
+            const CardLi$$ = document.createElement("li");
             
-            const li$$ = document.createElement("li");
-            
+            const CardFront$$ = document.createElement("div");
+            CardLi$$.appendChild(CardFront$$);
+            const CardBack$$ = document.createElement("div");
+            CardLi$$.appendChild(CardBack$$);
+            // ELEMENTOS CARDFRONT
             const h2$$ = document.createElement('h2');
             h2$$.textContent = resul.name;
 
             const imageContainer$$ = document.createElement('div');
-
             const img$$ = document.createElement('img');
             img$$.src = resul.sprites.other.dream_world.front_default;
 
             const id$$ = document.createElement('h3');
-            id$$.textContent = "Nº" + resul.id;
-
-
-
+            id$$.textContent = "Nº"+ " " + resul.id;
+            
             const types$$ = document.createElement('div');
             
             for (const tipo of resul.types){
@@ -77,31 +77,33 @@ const dataPokemons = async () => {
                 const nameType$$ = document.createElement("span");
                 types$$.appendChild(nameType$$);
                 nameType$$.textContent = tipo.type.name + " ";
-                nameType$$.createElement
             // para poner color al contenedor
             // if (tipo === "grass") {
             
             //      nameType$$.className = "grass"
   
             //   }
-
             };
+            // ELEMENTOS CARDBACK
+            const h2$$Back = document.createElement('h2');
+            h2$$Back.setAttribute("class", "h2Back")
+            h2$$Back.textContent = "CardBack"
+            CardBack$$.appendChild(h2$$Back)
 
-
-            
-            li$$.setAttribute("class", "li");
+            CardLi$$.setAttribute("class", "li");
             imageContainer$$.setAttribute("class", "imageContainer");
             types$$.setAttribute("class", "element");
-            //nameType$$.setAttribute("class", "nameType");
+            CardFront$$.setAttribute("class","front")
+            CardBack$$.setAttribute("class","back")
 
-            li$$.appendChild(h2$$);
-            li$$.appendChild(imageContainer$$);
+            CardFront$$.appendChild(h2$$);
+            CardFront$$.appendChild(imageContainer$$);
             imageContainer$$.appendChild(img$$);
-            li$$.appendChild(id$$);
-            li$$.appendChild(types$$);
+            CardFront$$.appendChild(id$$);
+            CardFront$$.appendChild(types$$);
 
 
-            ol$$.appendChild(li$$);
+            ol$$.appendChild(CardLi$$);
         }
     } catch (error) {
 
