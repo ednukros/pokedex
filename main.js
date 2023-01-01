@@ -1,5 +1,3 @@
-//Recuperar la lista con el id "podekex" y almacenarla en una variable.
-
 let urlPokemon = `https://pokeapi.co/api/v2/pokemon/`;
 
 const typeColors = {
@@ -117,6 +115,3 @@ function init() {
 }
 
 window.onload = init;
-
-
-
