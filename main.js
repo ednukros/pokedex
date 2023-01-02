@@ -14,7 +14,7 @@ const container$$ = document.querySelector(".container");
 
 const getPokemons = async () => {
   response = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150`
+    `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=15`
   );
   results = await response.json();
 
@@ -46,6 +46,7 @@ function renderFront() {
 
   const imageContainer$$ = document.createElement("div");
   const img$$ = document.createElement("img");
+  img$$.setAttribute("class","imgFront")
   img$$.src = resul.sprites.other.dream_world.front_default;
 
   const id$$ = document.createElement("h3");
@@ -116,6 +117,55 @@ function renderFront() {
   h2$$Back.setAttribute("class", "h2Back");
   h2$$Back.textContent = "CardBack";
   cardBack$$.appendChild(h2$$Back);
+
+  const heightWeight$$ = document.createElement("span");
+  heightWeight$$.setAttribute("class","heightWeight")
+  cardBack$$.appendChild(heightWeight$$);
+
+  const height$$ = document.createElement("p");
+  height$$.textContent ="Altura" + " " + resul.height;
+  heightWeight$$.appendChild(height$$);
+  const weight$$ = document.createElement("p");
+  weight$$.textContent ="Peso" + " " + resul.weight;
+  heightWeight$$.appendChild(weight$$);
+  
+  const experience$$ = document.createElement("p");
+  experience$$.textContent = "Experience" + " " + resul.base_experience;
+  cardBack$$.appendChild(experience$$);
+
+  const hp$$ = document.createElement("p");
+  hp$$.textContent = "Hp" + resul.stats[0].base_stat;
+  cardBack$$.appendChild(hp$$);
+
+  const attack$$ = document.createElement("p");
+  attack$$.textContent = "Ataque" + " " + resul.stats[1].base_stat;
+  cardBack$$.appendChild(attack$$);
+
+  const especialAttack$$ = document.createElement("p");
+  especialAttack$$.textContent = "Ataque especial" + " " + resul.stats[4].base_stat;
+  cardBack$$.appendChild(especialAttack$$);
+
+  const defense$$ = document.createElement("p");
+  defense$$.textContent = "Defensa" + " " + resul.stats[2].base_stat;
+  cardBack$$.appendChild(defense$$); 
+
+  const especialDefense$$ = document.createElement("p");
+  especialDefense$$.textContent = "Defensa especial" + " " + resul.stats[3].base_stat;
+  cardBack$$.appendChild(especialDefense$$); 
+  
+  const speed$$ = document.createElement("p");
+  speed$$.textContent = "Velocidad" + " " + resul.stats[5].base_stat;
+  cardBack$$.appendChild(speed$$);
+
+
+
+  
+
+
+
+
+
+
 
   cardLi$$.setAttribute("class", "li");
   imageContainer$$.setAttribute("class", "imageContainer");
