@@ -33,8 +33,7 @@ const getPokemons = async () => {
 
     }
 }
-const dataPokemons = async () => {
-    // try {
+
 
     function renderFront() {
 
@@ -191,13 +190,13 @@ const dataPokemons = async () => {
     }
 
 
-}
+
 
 
 
 
 function init() {
-    getPokemons(urlPokemon)
+    getPokemons()
 }
 
 window.onload = init;
