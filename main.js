@@ -14,7 +14,7 @@ const container$$ = document.querySelector(".container");
 
 const getPokemons = async () => {
   response = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=15`
+    `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150`
   );
   results = await response.json();
 
@@ -87,15 +87,15 @@ function renderFront() {
       nameType$$.style.backgroundColor = "#A2FAA3";
     }
     if (tipo.type.name === "poison") {
-      nameType$$.style.backgroundColor = "#795663";
+      nameType$$.style.backgroundColor = "#7e54c7";
     }
     if (tipo.type.name === "ground") {
-      nameType$$.style.backgroundColor = "#D2B074";
+      nameType$$.style.backgroundColor= "#d86c00";
     }
     if (tipo.type.name === "dragon") {
       nameType$$.style.backgroundColor = "#DA627D";
     }
-    if (tipo.type.name === "steel") {
+    if (tipo.type.name === "steel") { 
       nameType$$.style.backgroundColor = "#1D8A99";
     }
     if (tipo.type.name === "fighting") {
@@ -115,7 +115,7 @@ function renderFront() {
   // ELEMENTOS CARDBACK
   const h2$$Back = document.createElement("h2");
   h2$$Back.setAttribute("class", "h2Back");
-  h2$$Back.textContent = "CardBack";
+  h2$$Back.textContent = "#" + resul.id;
   cardBack$$.appendChild(h2$$Back);
 
   const heightWeight$$ = document.createElement("span");
@@ -134,7 +134,7 @@ function renderFront() {
   cardBack$$.appendChild(experience$$);
 
   const hp$$ = document.createElement("p");
-  hp$$.textContent = "Hp" + resul.stats[0].base_stat;
+  hp$$.textContent = "Hp"+ " " + resul.stats[0].base_stat;
   cardBack$$.appendChild(hp$$);
 
   const attack$$ = document.createElement("p");
@@ -142,7 +142,7 @@ function renderFront() {
   cardBack$$.appendChild(attack$$);
 
   const especialAttack$$ = document.createElement("p");
-  especialAttack$$.textContent = "Ataque especial" + " " + resul.stats[4].base_stat;
+  especialAttack$$.textContent = "Ataq. Especial" + " " + resul.stats[4].base_stat;
   cardBack$$.appendChild(especialAttack$$);
 
   const defense$$ = document.createElement("p");
@@ -150,20 +150,12 @@ function renderFront() {
   cardBack$$.appendChild(defense$$); 
 
   const especialDefense$$ = document.createElement("p");
-  especialDefense$$.textContent = "Defensa especial" + " " + resul.stats[3].base_stat;
+  especialDefense$$.textContent = "Def.Especial" + "   " + resul.stats[3].base_stat;
   cardBack$$.appendChild(especialDefense$$); 
   
   const speed$$ = document.createElement("p");
-  speed$$.textContent = "Velocidad" + " " + resul.stats[5].base_stat;
+  speed$$.textContent = "Velocidad" + "     " + resul.stats[5].base_stat;
   cardBack$$.appendChild(speed$$);
-
-
-
-  
-
-
-
-
 
 
 
