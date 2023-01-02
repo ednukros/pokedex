@@ -12,26 +12,25 @@ const next = document.querySelector("#next");
 const ol$$ = document.querySelector("#pokedex");
 const container$$ = document.querySelector(".container");
 
-
 const getPokemons = async () => {
   response = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=15`
+    `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150`
   );
   results = await response.json();
 
   console.log(results.results);
 
   for (let i = 1; i < results.results.length; i++) {
-    //results.results.length esto es igual que i<= 15;
+    //results.results.length esto es igual que i<= 150;
 
     resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
     resul = await resp.json();
     console.log(resul);
-    renderFront(resul);
+    renderFront();
   }
 };
 
-function renderFront(resul) {
+function renderFront() {
   const container$$ = document.querySelector(".container");
   const ol$$ = document.querySelector("#pokedex");
 
@@ -60,10 +59,56 @@ function renderFront(resul) {
     nameType$$.textContent = tipo.type.name + " ";
 
     if (tipo.type.name === "grass") {
-
-        nameType$$.style.background = "#4A9681"
-
-      }
+      nameType$$.style.backgroundColor = "#4A9681";
+    }
+    if (tipo.type.name === "electric") {
+      nameType$$.style.backgroundColor = "#FFEA70";
+    }
+    if (tipo.type.name === "normal") {
+      nameType$$.style.backgroundColor = "#B09398";
+    }
+    if (tipo.type.name === "fire") {
+      nameType$$.style.backgroundColor = "#FF675C";
+    }
+    if (tipo.type.name === "water") {
+      nameType$$.style.backgroundColor = "#0596C7";
+    }
+    if (tipo.type.name === "ice") {
+      nameType$$.style.backgroundColor = "#AFEAFD";
+    }
+    if (tipo.type.name === "rock") {
+      nameType$$.style.backgroundColor = "#999799";
+    }
+    if (tipo.type.name === "flying") {
+      nameType$$.style.backgroundColor = "#7AE7C7";
+    }
+    if (tipo.type.name === "bug") {
+      nameType$$.style.backgroundColor = "#A2FAA3";
+    }
+    if (tipo.type.name === "poison") {
+      nameType$$.style.backgroundColor = "#795663";
+    }
+    if (tipo.type.name === "ground") {
+      nameType$$.style.backgroundColor = "#D2B074";
+    }
+    if (tipo.type.name === "dragon") {
+      nameType$$.style.backgroundColor = "#DA627D";
+    }
+    if (tipo.type.name === "steel") {
+      nameType$$.style.backgroundColor = "#1D8A99";
+    }
+    if (tipo.type.name === "fighting") {
+      nameType$$.style.backgroundColor = "#2F2F2F";
+    }
+    if (tipo.type.name === "psychic") {
+      nameType$$.style.backgroundColor = "#FFC6D9";
+    }
+    if (tipo.type.name === "ghost") {
+      nameType$$.style.backgroundColor = "#561D25";
+    }
+    if (tipo.type.name === "fairy") {
+      nameType$$.style.backgroundColor = "#e589a8";
+    }
   }
 
   // ELEMENTOS CARDBACK
@@ -71,11 +116,6 @@ function renderFront(resul) {
   h2$$Back.setAttribute("class", "h2Back");
   h2$$Back.textContent = "CardBack";
   cardBack$$.appendChild(h2$$Back);
-
-  const height$$ = document.createElement("p")
-  height$$.textContent = "Altura"+ "" + resul.height;
-  cardBack$$.appendChild(height$$)
-
 
   cardLi$$.setAttribute("class", "li");
   imageContainer$$.setAttribute("class", "imageContainer");
