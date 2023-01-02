@@ -6,32 +6,12 @@ let results;
 let resp;
 let resul;
 
-const typeColors = {
-    electric: '#FFEA70',
-    normal: '#B09398',
-    fire: '#FF675C',
-    water: '#0596C7',
-    ice: '#AFEAFD',
-    rock: '#999799',
-    flying: '#7AE7C7',
-    grass: '#4A9681',
-    psychic: '#FFC6D9',
-    ghost: '#561D25',
-    bug: '#A2FAA3',
-    poison: '#795663',
-    ground: '#D2B074',
-    dragon: '#DA627D',
-    steel: '#1D8A99',
-    fighting: '#2F2F2F',
-    default: '',
-};
 
-
-
-
-
-
-
+//SELECCIONAMOS ELEMENTOS HTML
+const previous = document.querySelector("#previous");
+const next = document.querySelector("#next");
+const ol$$ = document.querySelector("#pokedex");
+const container$$ = document.querySelector(".container");
 
 
 
@@ -68,12 +48,12 @@ function renderFront() {
     const container$$ = document.querySelector(".container");
     const ol$$ = document.querySelector("#pokedex");
 
-    const CardLi$$ = document.createElement("li");
+    const cardLi$$ = document.createElement("li");
 
     const CardFront$$ = document.createElement("div");
-    CardLi$$.appendChild(CardFront$$);
+    cardLi$$.appendChild(cardFront$$);
     const CardBack$$ = document.createElement("div");
-    CardLi$$.appendChild(CardBack$$);
+    cardLi$$.appendChild(cardBack$$);
     // ELEMENTOS CARDFRONT
     const h2$$ = document.createElement('h2');
     h2$$.textContent = resul.name;
@@ -135,11 +115,12 @@ function renderFront() {
     
         }
         if (tipo.type.name === 'bug') {
+        
+        nameType$$.style.backgroundColor =  '#A2FAA3';
 
-            nameType$$.style.backgroundColor =  '#A2FAA3';
-    
         }
         if (tipo.type.name === 'poison') {
+
 
             nameType$$.style.backgroundColor =  '#795663';
     
@@ -187,25 +168,24 @@ function renderFront() {
    
  
    // ELEMENTOS CARDBACK
-const h2$$Back = document.createElement('h2');
-h2$$Back.setAttribute("class", "h2Back")
-h2$$Back.textContent = "CardBack"
-CardBack$$.appendChild(h2$$Back)
+ const h2$$Back = document.createElement('h2');
+ h2$$Back.setAttribute("class", "h2Back")
+ h2$$Back.textContent = "CardBack"
+ cardBack$$.appendChild(h2$$Back)
 
-CardLi$$.setAttribute("class", "li");
-imageContainer$$.setAttribute("class", "imageContainer");
-types$$.setAttribute("class", "element");
-CardFront$$.setAttribute("class", "front")
-CardBack$$.setAttribute("class", "back")
+ cardLi$$.setAttribute("class", "li");
+ imageContainer$$.setAttribute("class", "imageContainer");
+ types$$.setAttribute("class", "element");
+ cardFront$$.setAttribute("class", "front");
+ cardBack$$.setAttribute("class", "back");
 
-CardFront$$.appendChild(h2$$);
-CardFront$$.appendChild(imageContainer$$);
-imageContainer$$.appendChild(img$$);
-CardFront$$.appendChild(id$$);
-CardFront$$.appendChild(types$$);
+  cardFront$$.appendChild(h2$$);
+  cardFront$$.appendChild(imageContainer$$);
+  imageContainer$$.appendChild(img$$);
+  cardFront$$.appendChild(id$$);
+  cardFront$$.appendChild(types$$);
 
-
-ol$$.appendChild(CardLi$$);
+  ol$$.appendChild(cardLi$$);
     
 };
 
@@ -234,4 +214,7 @@ window.onload = init;
 
 
 
+
+
+ 
 

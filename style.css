@@ -5,6 +5,7 @@
   text-decoration: none;
   list-style: none;
   font-size: 30px;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .logo {
@@ -43,7 +44,8 @@
 }
 #pokedex .front {
   border-radius: 20px;
-}
+  background-color: #cbcbcb;
+
 #pokedex .back {
   border-radius: 20px;
   background-color: rgb(9, 116, 182);
