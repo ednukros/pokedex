@@ -34,23 +34,23 @@ const typeColors = {
 
 const getPokemons = async () => {
   response = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150`
+    `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=15`
   );
   results = await response.json();
 
   console.log(results.results);
 
   for (let i = 1; i < results.results.length; i++) {
-    //results.results.length esto es igual que i<= 150;
+    //results.results.length esto es igual que i<= 15;
 
     resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
     resul = await resp.json();
     console.log(resul);
-    renderFront();
+    renderFront(resul);
   }
 };
 
-function renderFront() {
+function renderFront(resul) {
   const container$$ = document.querySelector(".container");
   const ol$$ = document.querySelector("#pokedex");
 
@@ -77,18 +77,24 @@ function renderFront() {
     const nameType$$ = document.createElement("span");
     types$$.appendChild(nameType$$);
     nameType$$.textContent = tipo.type.name + " ";
-    // para poner color al contenedor
-    // if (tipo === "grass") {
 
-    //      nameType$$.className = "grass"
+    if (tipo.type.name === "grass") {
+        
+        nameType$$.style.background = "#4A9681"
 
-    //   }
+      }
   }
+
   // ELEMENTOS CARDBACK
   const h2$$Back = document.createElement("h2");
   h2$$Back.setAttribute("class", "h2Back");
   h2$$Back.textContent = "CardBack";
   cardBack$$.appendChild(h2$$Back);
+
+  const height$$ = document.createElement("p")
+  height$$.textContent = "Altura"+ "" + resul.height;
+  cardBack$$.appendChild(height$$)
+
 
   cardLi$$.setAttribute("class", "li");
   imageContainer$$.setAttribute("class", "imageContainer");
