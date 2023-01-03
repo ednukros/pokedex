@@ -61,56 +61,74 @@ function renderFront() {
 
     if (tipo.type.name === "grass") {
       nameType$$.style.backgroundColor = "#4A9681";
+      cardBack$$.style.backgroundColor = "#4A9681"
     }
     if (tipo.type.name === "electric") {
       nameType$$.style.backgroundColor = "#FFEA70";
+      cardBack$$.style.backgroundColor = "#FFEA70";
     }
     if (tipo.type.name === "normal") {
-      nameType$$.style.backgroundColor = "#B09398";
+      nameType$$.style.backgroundColor = "#d8a3ac";
+      cardBack$$.style.backgroundColor = "#d8a3ac";
     }
     if (tipo.type.name === "fire") {
       nameType$$.style.backgroundColor = "#FF675C";
+      cardBack$$.style.backgroundColor = "#FF675C";
+      
     }
     if (tipo.type.name === "water") {
       nameType$$.style.backgroundColor = "#0596C7";
+      cardBack$$.style.backgroundColor = "#0596C7";
     }
     if (tipo.type.name === "ice") {
       nameType$$.style.backgroundColor = "#AFEAFD";
+      cardBack$$.style.backgroundColor = "#AFEAFD";
     }
     if (tipo.type.name === "rock") {
       nameType$$.style.backgroundColor = "#999799";
+      cardBack$$.style.backgroundColor = "#999799";
     }
     if (tipo.type.name === "flying") {
       nameType$$.style.backgroundColor = "#7AE7C7";
+      cardBack$$.style.backgroundColor = "#7AE7C7";
     }
     if (tipo.type.name === "bug") {
       nameType$$.style.backgroundColor = "#A2FAA3";
+      cardBack$$.style.backgroundColor = "#A2FAA3";
     }
     if (tipo.type.name === "poison") {
       nameType$$.style.backgroundColor = "#7e54c7";
+      cardBack$$.style.backgroundColor = "#7e54c7";
     }
     if (tipo.type.name === "ground") {
       nameType$$.style.backgroundColor= "#d86c00";
+      cardBack$$.style.backgroundColor = "#d86c00";
     }
     if (tipo.type.name === "dragon") {
       nameType$$.style.backgroundColor = "#DA627D";
+      cardBack$$.style.backgroundColor = "#DA627D";
     }
     if (tipo.type.name === "steel") { 
       nameType$$.style.backgroundColor = "#1D8A99";
+      cardBack$$.style.backgroundColor = "#1D8A99";
     }
     if (tipo.type.name === "fighting") {
       nameType$$.style.backgroundColor = "#2F2F2F";
+      cardBack$$.style.backgroundColor = "#2F2F2F";
     }
     if (tipo.type.name === "psychic") {
       nameType$$.style.backgroundColor = "#FFC6D9";
+      cardBack$$.style.backgroundColor = "#FFC6D9";
     }
     if (tipo.type.name === "ghost") {
       nameType$$.style.backgroundColor = "#561D25";
+      cardBack$$.style.backgroundColor = "#561D25";
     }
     if (tipo.type.name === "fairy") {
       nameType$$.style.backgroundColor = "#e589a8";
+      cardBack$$.style.backgroundColor = "#e589a8";
     }
-  }
+  };
 
   // ELEMENTOS CARDBACK
   const h2$$Back = document.createElement("h2");
@@ -129,9 +147,17 @@ function renderFront() {
   weight$$.textContent ="Peso" + " " + resul.weight;
   heightWeight$$.appendChild(weight$$);
   
-  const experience$$ = document.createElement("p");
-  experience$$.textContent = "Experience" + " " + resul.base_experience;
+  const experience$$ = document.createElement("span");
+  experience$$.setAttribute("class","experience")
   cardBack$$.appendChild(experience$$);
+
+  const experienceText$$ = document.createElement("p");
+  experienceText$$.textContent = "Experiencia " 
+  experience$$.appendChild(experienceText$$);
+  const experienceResul$$ = document.createElement("p");
+  experienceResul$$.textContent =  resul.base_experience;
+  experience$$.appendChild(experienceResul$$);
+
 
   const hp$$ = document.createElement("p");
   hp$$.textContent = "Hp"+ " " + resul.stats[0].base_stat;
@@ -172,10 +198,10 @@ function renderFront() {
   cardFront$$.appendChild(types$$);
 
   ol$$.appendChild(cardLi$$);
-}
+};
 
 function init() {
   getPokemons();
-}
+};
 
 window.onload = init;
