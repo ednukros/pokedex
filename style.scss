@@ -49,7 +49,7 @@ body {
     padding-top: 16px;
     padding-bottom: 16px;
     border-radius: 80px 15px 80px 15px;
-    box-shadow: 0px 0px 15px 0px rgba(165, 165, 165, 0.56);
+    box-shadow: 0px 15px 15px 0px rgba(0, 0, 0, 0.56);
   }
 
   .front,
@@ -61,6 +61,7 @@ body {
     left: 0;
     backface-visibility: hidden;
   }
+  
   .front {
     display: flex;
     flex-direction: column;
@@ -91,8 +92,12 @@ body {
       font-weight: 400px;
       font-size: 20px;
       margin-bottom: 5px;
-      background-color: rgba(245, 245, 245, 0.45);
-      border-radius: 5px 40px 5px 40px;
+
+      p{
+        background-color: rgba(245, 245, 245, 0.45);
+        border-radius: 5px 40px 5px 40px;
+        padding: 10px;
+      }
 
     }
     .experience {
@@ -103,6 +108,13 @@ body {
       background-color: rgba(245, 245, 245, 0.45);
       border-radius: 5px 40px 5px 40px;
     }
+    .hp {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 5px;
+
+    }
   }
 
 .li:hover {
@@ -110,7 +122,8 @@ body {
 }
 
 h2 {
-  padding-top: 30px;
+  padding-top: 20px;
+  padding-bottom: 10px;
   text-transform: uppercase;
   font-weight:900;
   font-size: 40px;
@@ -132,18 +145,17 @@ h3 {
 }
 
 span {
-  border-radius: 50px 10px 50px 10px;
+  border-radius: 30px 10px 30px 10px;
   font-size: 26px;
   font-weight: 400px;
 }
 
 p {
-  font-size: 30px;
+  font-size: 24px;
   display: flex;
   text-align: justify;
   justify-content: center;
   margin: 8px;
   font-weight: 400;
-
 }
 }
