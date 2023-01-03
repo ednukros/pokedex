@@ -6,7 +6,8 @@ let results;
 let resp;
 let resul;
 
-//SELECCIONAMOS ELEMENTOS HTML
+
+//SELECCIONAMOS ELEMENTOS HTML 
 const previous = document.querySelector("#previous");
 const next = document.querySelector("#next");
 const ol$$ = document.querySelector("#pokedex");
@@ -44,6 +45,9 @@ function renderFront() {
   const h2$$ = document.createElement("h2");
   h2$$.textContent = resul.name;
 
+  const circle$$ = document.createElement("div");
+  circle$$.setAttribute("id","circle");
+  li$$.appendChild("circle$$");
   const imageContainer$$ = document.createElement("div");
   const img$$ = document.createElement("img");
   img$$.setAttribute("class","imgFront")
@@ -54,10 +58,15 @@ function renderFront() {
 
   const types$$ = document.createElement("div");
 
+
+  types$$.setAttribute("id","typeDiv");
+
   for (const tipo of resul.types) {
     const nameType$$ = document.createElement("span");
+    nameType$$.setAttribute("id", "nameType");
     types$$.appendChild(nameType$$);
-    nameType$$.textContent = tipo.type.name + " ";
+    nameType$$.textContent = tipo.type.name;
+
 
     if (tipo.type.name === "grass") {
       nameType$$.style.backgroundColor = "#4A9681";
@@ -70,6 +79,7 @@ function renderFront() {
     if (tipo.type.name === "normal") {
       nameType$$.style.backgroundColor = "#d8a3ac";
       cardBack$$.style.backgroundColor = "#d8a3ac";
+
     }
     if (tipo.type.name === "fire") {
       nameType$$.style.backgroundColor = "#FF675C";
@@ -92,6 +102,7 @@ function renderFront() {
       nameType$$.style.backgroundColor = "#7AE7C7";
       cardBack$$.style.backgroundColor = "#7AE7C7";
     }
+
     if (tipo.type.name === "bug") {
       nameType$$.style.backgroundColor = "#A2FAA3";
       cardBack$$.style.backgroundColor = "#A2FAA3";
@@ -158,6 +169,7 @@ function renderFront() {
   experienceResul$$.textContent =  resul.base_experience;
   experience$$.appendChild(experienceResul$$);
 
+
   const hp$$ = document.createElement("span");
   hp$$.setAttribute("class","hp")
   cardBack$$.appendChild(hp$$);
@@ -218,17 +230,17 @@ function renderFront() {
   speedResul$$.textContent = resul.stats[5].base_stat;
   speed$$.appendChild(speedResul$$);
 
-
-
   cardLi$$.setAttribute("class", "li");
   imageContainer$$.setAttribute("class", "imageContainer");
   types$$.setAttribute("class", "element");
   cardFront$$.setAttribute("class", "front");
   cardBack$$.setAttribute("class", "back");
 
+
   cardFront$$.appendChild(h2$$);
   cardFront$$.appendChild(imageContainer$$);
   imageContainer$$.appendChild(img$$);
+  cardFront$$.appendChild(circle$$);
   cardFront$$.appendChild(id$$);
   cardFront$$.appendChild(types$$);
 
@@ -240,3 +252,4 @@ function init() {
 };
 
 window.onload = init;
+
