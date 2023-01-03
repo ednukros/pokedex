@@ -27,10 +27,10 @@ body {
 
 .logo {
     width: 400px;
-    
-}
+ }
 
 #pokedex {
+
     display: flex;
     flex-wrap: wrap;
     background-color: rgb(255, 255, 255);
@@ -170,15 +170,25 @@ body {
     }
 
     p {
-        font-size: 30px;
-        display: flex;
-        text-align: justify;
-        justify-content: center;
-        margin: 8px;
-        font-weight: 400;
+       
+    font-size: 24px;
+    display: flex;
+    text-align: justify;
+    justify-content: center;
+    margin: 8px;
+    font-weight: 400;
+}
 
     }
+
 }
+
+span {
+  border-radius: 30px 10px 30px 10px;
+  font-size: 26px;
+  font-weight: 400px;
+}
+
 
 
 #typeDiv{
@@ -191,3 +201,4 @@ body {
     padding-left: 10px;
     padding-right: 10px;
 }
+

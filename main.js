@@ -6,6 +6,7 @@ let results;
 let resp;
 let resul;
 
+
 //SELECCIONAMOS ELEMENTOS HTML 
 const previous = document.querySelector("#previous");
 const next = document.querySelector("#next");
@@ -44,6 +45,9 @@ function renderFront() {
   const h2$$ = document.createElement("h2");
   h2$$.textContent = resul.name;
 
+  const circle$$ = document.createElement("div");
+  circle$$.setAttribute("id","circle");
+  li$$.appendChild("circle$$");
   const imageContainer$$ = document.createElement("div");
   const img$$ = document.createElement("img");
   img$$.setAttribute("class","imgFront")
@@ -53,6 +57,8 @@ function renderFront() {
   id$$.textContent = "Nº" + " " + resul.id;
 
   const types$$ = document.createElement("div");
+
+
   types$$.setAttribute("id","typeDiv");
 
   for (const tipo of resul.types) {
@@ -60,6 +66,7 @@ function renderFront() {
     nameType$$.setAttribute("id", "nameType");
     types$$.appendChild(nameType$$);
     nameType$$.textContent = tipo.type.name;
+
 
     if (tipo.type.name === "grass") {
       nameType$$.style.backgroundColor = "#4A9681";
@@ -72,6 +79,7 @@ function renderFront() {
     if (tipo.type.name === "normal") {
       nameType$$.style.backgroundColor = "#d8a3ac";
       cardBack$$.style.backgroundColor = "#d8a3ac";
+
     }
     if (tipo.type.name === "fire") {
       nameType$$.style.backgroundColor = "#FF675C";
@@ -94,6 +102,7 @@ function renderFront() {
       nameType$$.style.backgroundColor = "#7AE7C7";
       cardBack$$.style.backgroundColor = "#7AE7C7";
     }
+
     if (tipo.type.name === "bug") {
       nameType$$.style.backgroundColor = "#A2FAA3";
       cardBack$$.style.backgroundColor = "#A2FAA3";
@@ -161,39 +170,72 @@ function renderFront() {
   experience$$.appendChild(experienceResul$$);
 
 
-  const hp$$ = document.createElement("p");
-  hp$$.textContent = "Hp"+ " " + resul.stats[0].base_stat;
+  const hp$$ = document.createElement("span");
+  hp$$.setAttribute("class","hp")
   cardBack$$.appendChild(hp$$);
+  const hpText$$ = document.createElement("p");
+  hpText$$.textContent = "Hp"
+  hp$$.appendChild(hpText$$);
+  const hpResul$$ = document.createElement("p");
+  hpResul$$.textContent =  resul.stats[0].base_stat;
+  hp$$.appendChild(hpResul$$);
 
-  const attack$$ = document.createElement("p");
-  attack$$.textContent = "Ataque" + " " + resul.stats[1].base_stat;
+  const attack$$ = document.createElement("span");
+  attack$$.setAttribute("class","hp")
   cardBack$$.appendChild(attack$$);
+  const attackText$$ = document.createElement("p");
+  attackText$$.textContent = "Ataque";
+  attack$$.appendChild(attackText$$);
+  const attackResul$$ = document.createElement("p");
+  attackResul$$.textContent = resul.stats[1].base_stat;
+  attack$$.appendChild(attackResul$$);
 
-  const especialAttack$$ = document.createElement("p");
-  especialAttack$$.textContent = "Ataq. Especial" + " " + resul.stats[4].base_stat;
+  const especialAttack$$ = document.createElement("span");
+  especialAttack$$.setAttribute("class","hp")
   cardBack$$.appendChild(especialAttack$$);
+  const especialAttackText$$ = document.createElement("p");
+  especialAttackText$$.textContent = "Ataq. Especial" 
+  especialAttack$$.appendChild(especialAttackText$$);
+  const especialAttackResul$$ = document.createElement("p");
+  especialAttackResul$$.textContent = resul.stats[4].base_stat;
+  especialAttack$$.appendChild(especialAttackResul$$);
 
-  const defense$$ = document.createElement("p");
-  defense$$.textContent = "Defensa" + " " + resul.stats[2].base_stat;
-  cardBack$$.appendChild(defense$$); 
+  const defense$$ = document.createElement("span");
+  defense$$.setAttribute("class","hp");
+  cardBack$$.appendChild(defense$$);
+  const defenseText$$ = document.createElement("p");
+  defenseText$$.textContent = "Defensa";
+  defense$$.appendChild(defenseText$$); 
+  const defenseTextResul$$ = document.createElement("p");
+  defenseTextResul$$.textContent = resul.stats[2].base_stat;
+  defense$$.appendChild(defenseTextResul$$); 
 
-  const especialDefense$$ = document.createElement("p");
-  especialDefense$$.textContent = "Def.Especial" + "   " + resul.stats[3].base_stat;
-  cardBack$$.appendChild(especialDefense$$); 
+  const especialDefense$$ = document.createElement("span");
+  especialDefense$$.setAttribute("class","hp");
+  cardBack$$.appendChild(especialDefense$$);
+  const especialDefenseText$$ = document.createElement("p");
+  especialDefenseText$$.textContent = "Def.Especial";
+  especialDefense$$.appendChild(especialDefenseText$$); 
+  const especialDefenseResul$$ = document.createElement("p");
+  especialDefenseResul$$.textContent = resul.stats[3].base_stat;
+  especialDefense$$.appendChild(especialDefenseResul$$); 
   
-  const speed$$ = document.createElement("p");
-  speed$$.textContent = "Velocidad" + "     " + resul.stats[5].base_stat;
+  const speed$$ = document.createElement("span");
+  speed$$.setAttribute("class","hp");
   cardBack$$.appendChild(speed$$);
-  const circle$$ = document.createElement("div");
-
-
+  const speedText$$ = document.createElement("p");
+  speedText$$.textContent = "Velocidad";
+  speed$$.appendChild(speedText$$);
+  const speedResul$$ = document.createElement("p");
+  speedResul$$.textContent = resul.stats[5].base_stat;
+  speed$$.appendChild(speedResul$$);
 
   cardLi$$.setAttribute("class", "li");
   imageContainer$$.setAttribute("class", "imageContainer");
   types$$.setAttribute("class", "element");
   cardFront$$.setAttribute("class", "front");
   cardBack$$.setAttribute("class", "back");
-  circle$$.setAttribute("id","circle");
+
 
   cardFront$$.appendChild(h2$$);
   cardFront$$.appendChild(imageContainer$$);
@@ -205,13 +247,9 @@ function renderFront() {
   ol$$.appendChild(cardLi$$);
 };
 
-function filter (type){
-
-
-}
-
 function init() {
   getPokemons();
 };
 
 window.onload = init;
+
