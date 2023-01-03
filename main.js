@@ -45,9 +45,10 @@ function renderFront() {
   const h2$$ = document.createElement("h2");
   h2$$.textContent = resul.name;
 
+  //Creación de circulo detrás imagen
   const circle$$ = document.createElement("div");
   circle$$.setAttribute("id","circle");
-  li$$.appendChild("circle$$");
+  cardFront$$.appendChild(circle$$);
   const imageContainer$$ = document.createElement("div");
   const img$$ = document.createElement("img");
   img$$.setAttribute("class","imgFront")
@@ -240,7 +241,7 @@ function renderFront() {
   cardFront$$.appendChild(h2$$);
   cardFront$$.appendChild(imageContainer$$);
   imageContainer$$.appendChild(img$$);
-  cardFront$$.appendChild(circle$$);
+
   cardFront$$.appendChild(id$$);
   cardFront$$.appendChild(types$$);
 
