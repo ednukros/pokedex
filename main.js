@@ -49,13 +49,14 @@ function renderFront() {
   const circle$$ = document.createElement("div");
   circle$$.setAttribute("id","circle");
   cardFront$$.appendChild(circle$$);
+  
   const imageContainer$$ = document.createElement("div");
   const img$$ = document.createElement("img");
   img$$.setAttribute("class","imgFront")
   img$$.src = resul.sprites.other.dream_world.front_default;
 
   const id$$ = document.createElement("h3");
-  id$$.textContent = "Nº" + " " + resul.id;
+  id$$.textContent = "#" + resul.id; //nuevo
 
   const types$$ = document.createElement("div");
 
