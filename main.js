@@ -15,7 +15,7 @@ const ol$$ = document.querySelector("#pokedex");
 const container$$ = document.querySelector(".container");
 
 const getPokemons = async () => {
-  response = await fetch(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=15`
+  response = await fetch(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150`
   );
   results = await response.json();
 
@@ -27,24 +27,18 @@ const getPokemons = async () => {
     resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
     resul = await resp.json();
     
+   
     renderFront();
+    
   }
   
+
+  
 }
-// function filter(){
-
-//   const values = Object.entries(resp.json.name);
-//   console.log(values.filter(resu => resu.name === "bulbasaur"));
-// }
-
-// const inputSearch$$ = document.querySelector(".inputSearch");
-// const btnSearch$$ = document.querySelector(".btnSearch");
-
-// btnSearch$$.addEventListener("click", search);
-
 
 
 function renderFront() {
+  
   const container$$ = document.querySelector(".container");
   const ol$$ = document.querySelector("#pokedex");
 
