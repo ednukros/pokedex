@@ -7,6 +7,7 @@ let resp;
 let resul;
 
 
+
 //SELECCIONAMOS ELEMENTOS HTML 
 const previous = document.querySelector("#previous");
 const next = document.querySelector("#next");
@@ -14,24 +15,30 @@ const ol$$ = document.querySelector("#pokedex");
 const container$$ = document.querySelector(".container");
 
 const getPokemons = async () => {
-  response = await fetch(
-    `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150`
+  response = await fetch(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=150`
   );
   results = await response.json();
 
-  console.log(results.results);
+  
 
   for (let i = 1; i < results.results.length; i++) {
     //results.results.length esto es igual que i<= 150;
 
     resp = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
     resul = await resp.json();
-    console.log(resul);
+    
+   
     renderFront();
+    
   }
-};
+  
+
+  
+}
+
 
 function renderFront() {
+  
   const container$$ = document.querySelector(".container");
   const ol$$ = document.querySelector("#pokedex");
 
@@ -47,21 +54,23 @@ function renderFront() {
 
   //Creación de circulo detrás imagen
   const circle$$ = document.createElement("div");
-  circle$$.setAttribute("id","circle");
+
+  circle$$.setAttribute("id", "circle");
+
   cardFront$$.appendChild(circle$$);
 
   const imageContainer$$ = document.createElement("div");
   const img$$ = document.createElement("img");
-  img$$.setAttribute("class","imgFront")
+  img$$.setAttribute("class", "imgFront")
   img$$.src = resul.sprites.other.dream_world.front_default;
 
   const id$$ = document.createElement("h3");
-  id$$.textContent = "Nº" + " " + resul.id;
+  id$$.textContent = "#" + resul.id; //nuevo
 
   const types$$ = document.createElement("div");
 
 
-  types$$.setAttribute("id","typeDiv");
+  types$$.setAttribute("id", "typeDiv");
 
   for (const tipo of resul.types) {
     const nameType$$ = document.createElement("span");
@@ -86,7 +95,7 @@ function renderFront() {
     if (tipo.type.name === "fire") {
       nameType$$.style.backgroundColor = "#FF675C";
       cardBack$$.style.backgroundColor = "#FF675C";
-      
+
     }
     if (tipo.type.name === "water") {
       nameType$$.style.backgroundColor = "#0596C7";
@@ -114,14 +123,14 @@ function renderFront() {
       cardBack$$.style.backgroundColor = "#7e54c7";
     }
     if (tipo.type.name === "ground") {
-      nameType$$.style.backgroundColor= "#d86c00";
+      nameType$$.style.backgroundColor = "#d86c00";
       cardBack$$.style.backgroundColor = "#d86c00";
     }
     if (tipo.type.name === "dragon") {
       nameType$$.style.backgroundColor = "#DA627D";
       cardBack$$.style.backgroundColor = "#DA627D";
     }
-    if (tipo.type.name === "steel") { 
+    if (tipo.type.name === "steel") {
       nameType$$.style.backgroundColor = "#1D8A99";
       cardBack$$.style.backgroundColor = "#1D8A99";
     }
@@ -150,39 +159,39 @@ function renderFront() {
   cardBack$$.appendChild(h2$$Back);
 
   const heightWeight$$ = document.createElement("span");
-  heightWeight$$.setAttribute("class","heightWeight")
+  heightWeight$$.setAttribute("class", "heightWeight")
   cardBack$$.appendChild(heightWeight$$);
 
   const height$$ = document.createElement("p");
-  height$$.textContent ="Altura" + " " + resul.height;
+  height$$.textContent = "Altura" + " " + resul.height;
   heightWeight$$.appendChild(height$$);
   const weight$$ = document.createElement("p");
-  weight$$.textContent ="Peso" + " " + resul.weight;
+  weight$$.textContent = "Peso" + " " + resul.weight;
   heightWeight$$.appendChild(weight$$);
-  
+
   const experience$$ = document.createElement("span");
-  experience$$.setAttribute("class","experience")
+  experience$$.setAttribute("class", "experience")
   cardBack$$.appendChild(experience$$);
   const experienceText$$ = document.createElement("p");
-  experienceText$$.textContent = "Experiencia " 
+  experienceText$$.textContent = "Experiencia "
   experience$$.appendChild(experienceText$$);
   const experienceResul$$ = document.createElement("p");
-  experienceResul$$.textContent =  resul.base_experience;
+  experienceResul$$.textContent = resul.base_experience;
   experience$$.appendChild(experienceResul$$);
 
 
   const hp$$ = document.createElement("span");
-  hp$$.setAttribute("class","hp")
+  hp$$.setAttribute("class", "hp")
   cardBack$$.appendChild(hp$$);
   const hpText$$ = document.createElement("p");
   hpText$$.textContent = "Hp"
   hp$$.appendChild(hpText$$);
   const hpResul$$ = document.createElement("p");
-  hpResul$$.textContent =  resul.stats[0].base_stat;
+  hpResul$$.textContent = resul.stats[0].base_stat;
   hp$$.appendChild(hpResul$$);
 
   const attack$$ = document.createElement("span");
-  attack$$.setAttribute("class","hp")
+  attack$$.setAttribute("class", "hp")
   cardBack$$.appendChild(attack$$);
   const attackText$$ = document.createElement("p");
   attackText$$.textContent = "Ataque";
@@ -192,37 +201,37 @@ function renderFront() {
   attack$$.appendChild(attackResul$$);
 
   const especialAttack$$ = document.createElement("span");
-  especialAttack$$.setAttribute("class","hp")
+  especialAttack$$.setAttribute("class", "hp")
   cardBack$$.appendChild(especialAttack$$);
   const especialAttackText$$ = document.createElement("p");
-  especialAttackText$$.textContent = "Ataq. Especial" 
+  especialAttackText$$.textContent = "Ataq. Especial"
   especialAttack$$.appendChild(especialAttackText$$);
   const especialAttackResul$$ = document.createElement("p");
   especialAttackResul$$.textContent = resul.stats[4].base_stat;
   especialAttack$$.appendChild(especialAttackResul$$);
 
   const defense$$ = document.createElement("span");
-  defense$$.setAttribute("class","hp");
+  defense$$.setAttribute("class", "hp");
   cardBack$$.appendChild(defense$$);
   const defenseText$$ = document.createElement("p");
   defenseText$$.textContent = "Defensa";
-  defense$$.appendChild(defenseText$$); 
+  defense$$.appendChild(defenseText$$);
   const defenseTextResul$$ = document.createElement("p");
   defenseTextResul$$.textContent = resul.stats[2].base_stat;
-  defense$$.appendChild(defenseTextResul$$); 
+  defense$$.appendChild(defenseTextResul$$);
 
   const especialDefense$$ = document.createElement("span");
-  especialDefense$$.setAttribute("class","hp");
+  especialDefense$$.setAttribute("class", "hp");
   cardBack$$.appendChild(especialDefense$$);
   const especialDefenseText$$ = document.createElement("p");
   especialDefenseText$$.textContent = "Def.Especial";
-  especialDefense$$.appendChild(especialDefenseText$$); 
+  especialDefense$$.appendChild(especialDefenseText$$);
   const especialDefenseResul$$ = document.createElement("p");
   especialDefenseResul$$.textContent = resul.stats[3].base_stat;
-  especialDefense$$.appendChild(especialDefenseResul$$); 
-  
+  especialDefense$$.appendChild(especialDefenseResul$$);
+
   const speed$$ = document.createElement("span");
-  speed$$.setAttribute("class","hp");
+  speed$$.setAttribute("class", "hp");
   cardBack$$.appendChild(speed$$);
   const speedText$$ = document.createElement("p");
   speedText$$.textContent = "Velocidad";
@@ -241,16 +250,18 @@ function renderFront() {
   cardFront$$.appendChild(h2$$);
   cardFront$$.appendChild(imageContainer$$);
   imageContainer$$.appendChild(img$$);
-  // cardFront$$.appendChild(circle$$);
   cardFront$$.appendChild(id$$);
   cardFront$$.appendChild(types$$);
 
   ol$$.appendChild(cardLi$$);
 };
 
+
+
+
+
 function init() {
   getPokemons();
 };
 
 window.onload = init;
-
