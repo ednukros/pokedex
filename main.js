@@ -45,9 +45,11 @@ function renderFront() {
   const h2$$ = document.createElement("h2");
   h2$$.textContent = resul.name;
 
-  // const circle$$ = document.createElement("div");
-  // circle$$.setAttribute("id","circle");
-  // cardLi$$.appendChild("circle$$");
+  //Creación de circulo detrás imagen
+  const circle$$ = document.createElement("div");
+  circle$$.setAttribute("id","circle");
+  cardFront$$.appendChild(circle$$);
+
   const imageContainer$$ = document.createElement("div");
   const img$$ = document.createElement("img");
   img$$.setAttribute("class","imgFront")
@@ -161,7 +163,6 @@ function renderFront() {
   const experience$$ = document.createElement("span");
   experience$$.setAttribute("class","experience")
   cardBack$$.appendChild(experience$$);
-
   const experienceText$$ = document.createElement("p");
   experienceText$$.textContent = "Experiencia " 
   experience$$.appendChild(experienceText$$);
