@@ -54,7 +54,9 @@ function renderFront() {
 
   //Creación de circulo detrás imagen
   const circle$$ = document.createElement("div");
+
   circle$$.setAttribute("id", "circle");
+
   cardFront$$.appendChild(circle$$);
 
   const imageContainer$$ = document.createElement("div");
@@ -170,7 +172,6 @@ function renderFront() {
   const experience$$ = document.createElement("span");
   experience$$.setAttribute("class", "experience")
   cardBack$$.appendChild(experience$$);
-
   const experienceText$$ = document.createElement("p");
   experienceText$$.textContent = "Experiencia "
   experience$$.appendChild(experienceText$$);
@@ -249,7 +250,6 @@ function renderFront() {
   cardFront$$.appendChild(h2$$);
   cardFront$$.appendChild(imageContainer$$);
   imageContainer$$.appendChild(img$$);
-
   cardFront$$.appendChild(id$$);
   cardFront$$.appendChild(types$$);
 
